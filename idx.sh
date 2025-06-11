@@ -66,7 +66,7 @@ cat >> /home/user/$username/xray/config.json <<EOF
                     "fingerprint": "random"
                 },
                 "wsSettings": {
-                    "path": "/$wspath",
+                    "path": "$wspath",
                     "host": "$domain"
                 }
             }
@@ -112,6 +112,6 @@ nohup /home/user/$username/xray/xray run -c /home/user/$username/xray/config.jso
 nohup /home/user/$username/cloudflared/cloudflared tunnel --no-autoupdate --edge-ip-version 4 --protocol http2 run --token "$auth" >/dev/null 2>&1 &
 
 # 输出成功信息
-sub="vless://$uuid@usa.visa.com:443?encryption=none&security=tls&sni=$domain&fp=random&type=ws&host=$domain&path=$wspath#idx-$username"
+sub="vless://$uuid@usa.visa.com:443?encryption=none&security=tls&sni=$domain&fp=random&type=ws&host=$domain&path=/$wspath?ed=2048#idx-$username"
 echo "脚本安装成功"
 echo "订阅链接: $sub"
