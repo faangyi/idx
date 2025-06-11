@@ -27,6 +27,7 @@ mkdir -p /home/user/$username/xray
 mkdir -p /home/user/$username/cloudflared
 
 # 下载xray
+mkdir -p /home/user/$username/xray/tmp
 curl -Lo /home/user/$username/xray/tmp/xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
 unzip -o /home/user/$username/xray/tmp/xray.zip -d /home/user/$username/xray/tmp
 mv /home/user/$username/xray/tmp/xray /home/user/$username/xray/xray
