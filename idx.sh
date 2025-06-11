@@ -60,13 +60,9 @@ cat >> /home/user/$username/xray/config.json <<EOF
             },
             "streamSettings": {
                 "network": "ws",
-                "security": "tls",
-                "tlsSettings": {
-                    "serverName": "$domain",
-                    "fingerprint": "random"
-                },
+                "security": "none",
                 "wsSettings": {
-                    "path": "$wspath",
+                    "path": "/$wspath",
                     "host": "$domain"
                 }
             }
@@ -112,6 +108,6 @@ nohup /home/user/$username/xray/xray run -c /home/user/$username/xray/config.jso
 nohup /home/user/$username/cloudflared/cloudflared tunnel --no-autoupdate --edge-ip-version 4 --protocol http2 run --token "$auth" >/dev/null 2>&1 &
 
 # 输出成功信息
-sub="vless://$uuid@usa.visa.com:443?encryption=none&security=tls&sni=$domain&fp=random&type=ws&host=$domain&path=/$wspath?ed=2048#idx-$username"
+sub="vless://$uuid@usa.visa.com:443?encryption=none&security=tls&sni=$domain&fp=random&type=ws&host=$domain&path=%2F$wspath%3Fed%3D2560#idx-$username"
 echo "脚本安装成功"
 echo "订阅链接: $sub"
