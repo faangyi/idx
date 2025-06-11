@@ -99,6 +99,7 @@ EOF
 chmod +x /home/user/$username/autorun.sh
 
 # 添加到.bashrc以便自动运行
+sed -i '/autorun/d' ~/.bashrc
 echo "bash /home/user/$username/autorun.sh" >> ~/.bashrc
 
 # 运行xray
