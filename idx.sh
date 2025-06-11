@@ -20,7 +20,7 @@ fi
 username=$(uname -n | cut -d'-' -f2)
 
 # 获取 ws 路径
-wspath=$(echo "$auth" | cut -d'-' -f5)
+wspath=$(echo "$uuid" | cut -d'-' -f5)
 
 # 创建必要的目录
 mkdir -p /home/user/$username/xray
